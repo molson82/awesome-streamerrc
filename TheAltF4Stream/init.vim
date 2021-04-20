@@ -108,6 +108,8 @@ if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
       \'coc-tailwindcss',
       \'coc-tsserver',
       \'coc-yaml',
+      \'coc-eslint',
+      \'coc-vetur',
       \]
 
   " Always show the signcolumn, otherwise it would shift the text each time
@@ -267,10 +269,10 @@ endif
 
 
 "'' Hardtime ''"
-if filereadable(expand("~/.config/nvim/plugged/vim-hardtime/plugin/hardtime.vim"))
-  let g:hardtime_default_on = 1
-  let g:hardtime_showmsg = 1
-endif
+" if filereadable(expand("~/.config/nvim/plugged/vim-hardtime/plugin/hardtime.vim"))
+"  let g:hardtime_default_on = 1
+"  let g:hardtime_showmsg = 1
+" endif
 
 
 "'' Hop ''"
