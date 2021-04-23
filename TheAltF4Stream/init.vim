@@ -7,6 +7,9 @@ set secure
 set shortmess+=c
 set termguicolors
 set updatetime=300
+set mouse=a
+set splitbelow
+
 syntax enable
 
 
@@ -55,7 +58,7 @@ set encoding=utf-8
 set noerrorbells
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set showtabline=2
 set nowrap
 set number
 set noshowmode
