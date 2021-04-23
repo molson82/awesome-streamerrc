@@ -7,7 +7,6 @@ set secure
 set shortmess+=c
 set termguicolors
 set updatetime=300
-set mouse=a
 set splitbelow
 
 syntax enable
@@ -35,7 +34,8 @@ Plug 'ghifarit53/tokyonight-vim'
 
 """ Utilities
 Plug 'phaazon/hop.nvim'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -43,6 +43,8 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'voldikss/vim-floaterm'
 Plug 'takac/vim-hardtime' " see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
 Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
+Plug 'airblade/vim-gitgutter'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 "'' END PLUG ''"
@@ -240,7 +242,7 @@ if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
   " Add (Neo)Vim's native statusline support.
   " NOTE: Please see `:h coc-status` for integrations with external plugins that
   " provide custom statusline: lightline.vim, vim-airline.
-  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+  "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
   " Mappings for CoCList
   " Show all diagnostics.
@@ -288,9 +290,9 @@ endif
 
 
 "'' Lightline ''"
-if filereadable(expand("~/.config/nvim/plugged/lightline.vim/plugin/lightline.vim"))
-  let g:lightline = {'colorscheme' : 'tokyonight'}
-endif
+"if filereadable(expand("~/.config/nvim/plugged/lightline.vim/plugin/lightline.vim"))
+  "let g:lightline = {'colorscheme' : 'tokyonight'}
+"endif
 
 
 "'' Telescope ''"
