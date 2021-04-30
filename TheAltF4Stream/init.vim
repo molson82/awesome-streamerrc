@@ -33,7 +33,7 @@ Plug 'phaazon/hop.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'romgrk/nvim-treesitter-context'
-"Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'voldikss/vim-floaterm'
 Plug 'takac/vim-hardtime' " see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
@@ -41,7 +41,6 @@ Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 "'' END PLUG ''"
