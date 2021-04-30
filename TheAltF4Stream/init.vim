@@ -19,18 +19,15 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-""" Neuron
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'fiatjaf/neuron.vim'
-
 """ Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 """ Themes
-Plug 'ghifarit53/tokyonight-vim'
+"Plug 'ghifarit53/tokyonight-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'joshdick/onedark.vim'
 
 """ Utilities
 Plug 'phaazon/hop.nvim'
@@ -51,15 +48,26 @@ call plug#end()
 
 "'' VIM POST-PLUG ''"
 "This executes the command silently and ignores errors
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-silent! colorscheme tokyonight
+"let g:tokyonight_style = 'night' " available: night, storm
+"let g:tokyonight_enable_italic = 1
+"silent! colorscheme tokyonight
+let g:onedark_hide_endofbuffer = 1
+let g:onedark_termcolors = 256
+let g:onedark_terminal_italics = 1
+
+let g:airline_theme='onedark'
+
+silent! colorscheme onedark
+
 set splitright
 set encoding=utf-8
 set noerrorbells
 set tabstop=2
 set shiftwidth=2
 set showtabline=2
+set smartindent
+set smarttab
+set autoindent
 set nowrap
 set number
 set noshowmode
@@ -269,10 +277,12 @@ endif
 
 
 "'' Hardtime ''"
-" if filereadable(expand("~/.config/nvim/plugged/vim-hardtime/plugin/hardtime.vim"))
-"  let g:hardtime_default_on = 1
-"  let g:hardtime_showmsg = 1
-" endif
+ if filereadable(expand("~/.config/nvim/plugged/vim-hardtime/plugin/hardtime.vim"))
+	let g:hardtime_default_on = 1
+	let g:hardtime_showmsg = 1
+	let g:hardtime_allow_different_key = 1
+	let g:hardtime_maxcount = 5
+ endif
 
 
 "'' Hop ''"
