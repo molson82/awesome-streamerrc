@@ -11,7 +11,6 @@ set splitbelow
 
 syntax enable
 
-
 "'' START PLUG ''"
 call plug#begin('~/.config/nvim/plugged')
 
@@ -25,22 +24,24 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 """ Themes
-"Plug 'ghifarit53/tokyonight-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'joshdick/onedark.vim'
+Plug 'ghifarit53/tokyonight-vim'
 
 """ Utilities
+Plug 'preservim/nerdtree'
+Plug 'jiangmiao/auto-pairs'
 Plug 'phaazon/hop.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'romgrk/nvim-treesitter-context'
-Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'kyazdani42/nvim-web-devicons'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'voldikss/vim-floaterm'
 Plug 'takac/vim-hardtime' " see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
 Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 "'' END PLUG ''"
@@ -48,16 +49,9 @@ call plug#end()
 
 "'' VIM POST-PLUG ''"
 "This executes the command silently and ignores errors
-"let g:tokyonight_style = 'night' " available: night, storm
-"let g:tokyonight_enable_italic = 1
-"silent! colorscheme tokyonight
-let g:onedark_hide_endofbuffer = 1
-let g:onedark_termcolors = 256
-let g:onedark_terminal_italics = 1
-
-let g:airline_theme='onedark'
-
-silent! colorscheme onedark
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+silent! colorscheme tokyonight
 
 set splitright
 set encoding=utf-8
@@ -173,6 +167,18 @@ if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+
+	" NERDTree Commands
+	nnoremap <leader>n :NERDTreeFocus<CR>
+	nnoremap <leader>nn :NERDTree<CR>
+	nnoremap <leader>nt :NERDTreeToggle<CR>
+	nnoremap <leader>nf :NERDTreeFind<CR>
+	nnoremap <C-l> :tabn<CR>
+	nnoremap <C-h> :tabp<CR>
+	nnoremap <C-n> :tabnew<CR>
+
+	autocmd BufWinEnter * silent NERDTreeMirror
+	 
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
       execute 'h '.expand('<cword>')
@@ -282,6 +288,7 @@ endif
 	let g:hardtime_showmsg = 1
 	let g:hardtime_allow_different_key = 1
 	let g:hardtime_maxcount = 5
+	let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
  endif
 
 
