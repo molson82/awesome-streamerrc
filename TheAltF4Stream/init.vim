@@ -8,6 +8,7 @@ set shortmess+=c
 set termguicolors
 set updatetime=300
 set splitbelow
+set cursorcolumn
 
 syntax enable
 
@@ -27,6 +28,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'ghifarit53/tokyonight-vim'
 
 """ Utilities
+Plug 'gregsexton/matchtag'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'phaazon/hop.nvim'
