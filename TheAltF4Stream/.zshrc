@@ -1,34 +1,21 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# FUSION, HA!
-export FUSION_PATH="/Library/Application Support/VMware Fusion"
-
-# GO
-export GO_PATH="$HOME/Development/go"
-export GOENV="$GO_PATH"
-export GOPATH="$GO_PATH"
-
-# VSCODE
-export VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-# PATH
-export PATH="$FUSION_PATH:$GO_PATH/bin:$VSCODE_PATH:$PATH"
-
-# EDITOR
-export EDITOR="nvim"
-
-# VAGRANT
-export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
-
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/home/wvandebe/.oh-my-zsh"
+
+export GOPATH="$HOME/gocode"
+export GOENV="$GOPATH"
+export GOPHERJS_GOROOT="/usr/local/go"
+export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="awesomepanda"
+
+export EDITOR="nvim"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -65,8 +52,6 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -81,6 +66,8 @@ ZSH_THEME="robbyrussell"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
+#
+# export EDITOR="nvim"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -90,7 +77,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z zsh-completions zsh-syntax-highlighting)
+plugins=(git golang docker heroku postgres redis-cli node npm themes vscode z zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -119,11 +106,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# ALIASES
 alias cat='bat --theme="base16"'
 alias ll='ls -alh'
 alias ssh='TERM="xterm-256color" ssh'
 
-# ITERM (MACOS ONLY)
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
