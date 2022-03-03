@@ -44,6 +44,7 @@ Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 "'' END PLUG ''"
@@ -89,16 +90,16 @@ nmap <leader>j :wincmd j<CR>
 nmap <leader>k :wincmd k<CR>
 nmap <leader>l :wincmd l<CR>
 
+noremap <C-w>m :MaximizerToggle<CR>
+
 
 "'' Conquer of Completion (CoC) ''"
 if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
   let g:coc_global_extensions=[
       \'coc-actions',
-      \'coc-angular',
       \'coc-css',
       \'coc-cssmodules',
       \'coc-docker',
-      \'coc-elixir',
       \'coc-floaterm',
       \'coc-go',
       \'coc-highlight',
@@ -108,7 +109,6 @@ if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
       \'coc-marketplace',
       \'coc-prettier',
       \'coc-python',
-      \'coc-rust-analyzer',
       \'coc-sh',
       \'coc-snippets',
       \'coc-sql',
@@ -118,6 +118,7 @@ if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
       \'coc-yaml',
       \'coc-eslint',
       \'coc-vetur',
+			\'coc-java',
       \]
 
   " Always show the signcolumn, otherwise it would shift the text each time
@@ -179,7 +180,7 @@ if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
 	nnoremap <C-h> :tabp<CR>
 	nnoremap <C-n> :tabnew<CR>
 
-	autocmd BufWinEnter * silent NERDTreeMirror
+	"autocmd BufWinEnter * silent NERDTreeMirror
 	 
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -254,7 +255,6 @@ if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
   " Add `:OR` command for organize imports of the current buffer.
   command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-
   " Mappings for CoCList
   " Show all diagnostics.
   nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
@@ -274,6 +274,7 @@ if filereadable(expand("~/.config/nvim/plugged/coc.nvim/plugin/coc.vim"))
   nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 endif
 
+lua	require'hop'.setup()
 
 "'' Floatterm ''"
 if filereadable(expand("~/.config/nvim/plugged/vim-floaterm/plugin/floaterm.vim"))
@@ -311,7 +312,8 @@ lua << EOF
       file_ignore_patterns = {
         "git/*",
         "**/*.pem",
-        "**/node_modules/**"
+        "**/node_modules/**",
+				"vendor/**"
       }
     }
   }
