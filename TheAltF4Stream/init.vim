@@ -45,6 +45,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'szw/vim-maximizer'
+""" Debugging
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'nvim-telescope/telescope-dap.nvim'
 
 call plug#end()
 "'' END PLUG ''"
@@ -91,6 +97,35 @@ nmap <leader>k :wincmd k<CR>
 nmap <leader>l :wincmd l<CR>
 
 noremap <C-w>m :MaximizerToggle<CR>
+
+""" Debugging keybinds
+nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+nnoremap <silent> <F4> :lua require'dap'.step_over()<CR>
+nnoremap <silent> <F2> :lua require'dap'.step_into()<CR>
+nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
+
+lua require("nvim-dap-virtual-text").setup()
+lua require('dap-go').setup()
+lua require("dapui").setup()
+
+
+lua << EOF
+	local dap, dapui = require("dap"), require("dapui")
+	dap.listeners.after.event_initialized["dapui_config"] = function()
+		dapui.open()
+	end
+	dap.listeners.before.event_terminated["dapui_config"] = function()
+		dapui.close()
+	end
+	dap.listeners.before.event_exited["dapui_config"] = function()
+		dapui.close()
+	end
+EOF
 
 
 "'' Conquer of Completion (CoC) ''"
